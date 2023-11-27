@@ -7,12 +7,14 @@
         x:Class="SeaBattle.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="SeaBattle"> 
+        Title="SeaBattle"
+        
+        Content="{Binding FieldGrid}"> 
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock FontFamily="{StaticResource JBRegular}" Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
+    <!-- <TextBlock FontFamily="{StaticResource JBRegular}" Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/> -->
+    <!-- <Grid x:Name="FieldGrid"></Grid> -->
 </Window>

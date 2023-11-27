@@ -1,6 +1,16 @@
-﻿namespace SeaBattle.ViewModels;
+﻿using Avalonia.Controls;
+using SeaBattle.Models;
+
+namespace SeaBattle.ViewModels;
 
 public class MainWindowViewModel : ViewModelBase
 {
-    public string Greeting => "Welcome to Avalonia!";
+    public FieldModel Field { get; }
+
+    public Grid FieldGrid { get; }
+    public MainWindowViewModel()
+    {
+        Field = new FieldModel();
+        FieldGrid = Field.makeLayout();
+    }
 }
