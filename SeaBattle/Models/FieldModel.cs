@@ -6,12 +6,26 @@ namespace SeaBattle.Models
 {
     public class FieldModel
     {
-        public Button[][] Field { get; set; }
-
-        public Grid makeLayout()
+        public FCellModel[][] Field { get; set; }
+        public FieldModel()
         {
-            var panel = new Grid();
+            Field = new FCellModel[10][];
+            for (int i = 0; i < 10; i++)
+            {
+                Field[i] = new FCellModel[10];
+                for (int j = 0; j < 10; j++)
+                {
+                    Field[i][j] = new FCellModel(i, j);
+                }
+            }
+        }
+
+        public StackPanel makeLayout()
+        {
+            // var panel = new Grid();
+            var panel = new StackPanel();
             panel.Name = "FieldGrid";
+            // panel.RowDefinitions = new RowDefinitions("* * * * * * * * * *");
             for (int i = 0; i < 10; i++)
             {
                 var row = new StackPanel();
@@ -20,10 +34,7 @@ namespace SeaBattle.Models
                 row.HorizontalAlignment = HorizontalAlignment.Stretch;
                 for (int j = 0; j < 10; j++)
                 {
-                    var button = new Button();
-                    button.Width = 50;
-                    button.Height = 50;
-                    row.Children.Add(button);
+                    row.Children.Add(Field[i][j].FCell);
                 }
                 panel.Children.Add(row);
             }
