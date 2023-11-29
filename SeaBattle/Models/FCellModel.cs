@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Windows.Input;
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using Avalonia.Layout;
 using Avalonia.Media;
+using ReactiveUI;
 
 namespace SeaBattle.Models
 {
@@ -17,11 +20,17 @@ namespace SeaBattle.Models
             // Нам надо отдельно создать файл где определить стейт
             // типо регуляр=такой то цвет и бордер
             // под
+            // FCell.Command = pnlButtons.AddHandler(Button.Click, new RoutedEventHandler(DoSomething));
+            FCell.Click += FCellHandler;
             FCell.Width = 50;
             FCell.Height = 50;
             ChangeState("regular", x, y);
         }
-
+        public void FCellHandler(object sender, RoutedEventArgs e)
+        {
+            StateProp props = (StateProp)((Button)e.Source).Tag;
+            ChangeState("error", props.x, props.y);
+        }
         private static void GenFCellStatesDict()
         {
             FCellStatesDict = new Dictionary<string, Dictionary<string, string>>();

@@ -15,7 +15,7 @@ namespace SeaBattle.Models
                 Field[i] = new FCellModel[10];
                 for (int j = 0; j < 10; j++)
                 {
-                    Field[i][j] = new FCellModel(i, j);
+                    Field[i][j] = new FCellModel(j, i);
                 }
             }
         }
