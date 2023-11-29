@@ -11,7 +11,7 @@
 
     <Application.Styles>
         <FluentTheme />
-        <StyleInclude Source="/MainStyles.axaml"></StyleInclude>
+        <StyleInclude Source="/MainWindowStyles.axaml"></StyleInclude>
     </Application.Styles>
     <Application.Resources>
         <ResourceDictionary>

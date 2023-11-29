@@ -3,4 +3,9 @@
     <FontFamily x:Key="JBRegular">Assets\Fonts\JetBrainsMono-Regular.ttf#JetBrains Mono</FontFamily>
     <FontFamily x:Key="JBLight">Assets\Fonts\JetBrainsMono-Light.ttf#JetBrains Mono</FontFamily>
     <FontFamily x:Key="JBBold">Assets\Fonts\JetBrainsMono-Bold.ttf#JetBrains Mono</FontFamily>
+    <SolidColorBrush x:Key="MainBackground" Color="#272727"/>
+    <SolidColorBrush x:Key="RegularColor" Color="#61AAFF"/>
+    <SolidColorBrush x:Key="ErrorColor" Color="#FF3838"/>
+    <SolidColorBrush x:Key="MissColor" Color="#000000"/>
+    <SolidColorBrush x:Key="DisbledColor" Color="#536375"/>
 </ResourceDictionary>

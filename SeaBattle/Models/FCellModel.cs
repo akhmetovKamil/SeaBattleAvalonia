@@ -22,24 +22,37 @@ namespace SeaBattle.Models
             // под
             // FCell.Command = pnlButtons.AddHandler(Button.Click, new RoutedEventHandler(DoSomething));
             FCell.Click += FCellHandler;
-            FCell.Width = 50;
-            FCell.Height = 50;
-            ChangeState("regular", x, y);
+            FCell.Width = 41;
+            FCell.Height = 41;
+            ChangeState("error", x, y);
         }
         public void FCellHandler(object sender, RoutedEventArgs e)
         {
             StateProp props = (StateProp)((Button)e.Source).Tag;
-            ChangeState("error", props.x, props.y);
+            // FCell.Classes.RemoveAt();
+            FCell.Classes.Remove(props.state);
+            ChangeState("regular", props.x, props.y);
         }
         private static void GenFCellStatesDict()
         {
             FCellStatesDict = new Dictionary<string, Dictionary<string, string>>();
             Dictionary<string, string> State = new Dictionary<string, string>();
-            State.Add("bg", "#61AAFF");
             FCellStatesDict.Add("regular", State);
-            Dictionary<string, string> StateErr = new Dictionary<string, string>();
-            StateErr.Add("bg", "#FF3838");
-            FCellStatesDict.Add("error", StateErr);
+
+            Dictionary<string, string> ErrorState = new Dictionary<string, string>();
+            FCellStatesDict.Add("error", ErrorState);
+
+            Dictionary<string, string> MissState = new Dictionary<string, string>();
+            FCellStatesDict.Add("miss", MissState);
+
+            Dictionary<string, string> DisabledState = new Dictionary<string, string>();
+            FCellStatesDict.Add("disabled", DisabledState);
+
+            Dictionary<string, string> HitState = new Dictionary<string, string>();
+            FCellStatesDict.Add("hit", HitState);
+
+            Dictionary<string, string> FullHit = new Dictionary<string, string>();
+            FCellStatesDict.Add("fullhit", FullHit);
         }
 
         public class StateProp
@@ -57,13 +70,8 @@ namespace SeaBattle.Models
 
         public void ChangeState(string state, int x, int y)
         {
-
             FCell.Tag = new StateProp(x, y, state);
-            string colour = FCellStatesDict[state]["bg"];
-            FCell.Background = new SolidColorBrush(Color.FromRgb(
-            Convert.ToByte(colour.Substring(1, 2), 16),
-            Convert.ToByte(colour.Substring(3, 2), 16),
-            Convert.ToByte(colour.Substring(5, 2), 16)));
+            FCell.Classes.Set(state, true);
         }
     }
 }
