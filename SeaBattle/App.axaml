@@ -3,19 +3,22 @@
              x:Class="SeaBattle.App"
              xmlns:local="using:SeaBattle"
              RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
-        <local:ViewLocator/>
+        <local:ViewLocator />
     </Application.DataTemplates>
-  
+
     <Application.Styles>
         <FluentTheme />
+        <StyleInclude Source="/MainStyles.axaml"></StyleInclude>
     </Application.Styles>
-
     <Application.Resources>
-        <FontFamily x:Key="JBRegular">Assets\Fonts\JetBrainsMono-Regular.ttf#JetBrains Mono</FontFamily>
-        <FontFamily x:Key="JBLight">Assets\Fonts\JetBrainsMono-Light.ttf#JetBrains Mono</FontFamily>
-        <FontFamily x:Key="JBBold">Assets\Fonts\JetBrainsMono-Bold.ttf#JetBrains Mono</FontFamily>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="/MainResources.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
+
 </Application>
